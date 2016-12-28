@@ -14,6 +14,9 @@ node index.js # start the app
 ```
 Enjoy.
 
+Type `[[search term]]` to get card information
+
 Notes: 
-* Search results are limited to 5 in the code.  
-* There's a bug with previewing images whose path contains a space.
+* Doesn't show card text, yet...
+* Search results are limited to 5.  
+* There's a bug in Discored with previewing images whose path contains a space.
