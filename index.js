@@ -121,6 +121,10 @@ bot.on('ready', () => {
 
 // create an event listener for messages
 bot.on('message', message => {
+    if (message.author.bot) {
+        return;
+    }
+
     // if the message is "ping",
     if (message.content === 'ping') {
         // send "pong" to the same channel.
@@ -174,7 +178,8 @@ bot.on('message', message => {
         }));
     }
     else if (message.content === '!help') {
-        message.channel.sendMessage('Type `[[search term]]` to get card information\nType `{{search term}}` to get card draft strength information');
+        message.channel.sendMessage('Type `[[search term]]` to get card information from <' +numotgamingCardsUrl+ '>\n'
+        + 'Type `{{search term}}` to get card draft strength information from <' +draftPickUrl+ '>\n');
     }
 });
 
