@@ -29,4 +29,4 @@ Type `{{search term}}` to get card draft strength information from https://rnget
 Notes:
 * Doesn't show card text, yet...
 * Search results are limited to 5.
-* There's a bug in Discored with previewing images whose path contains a space.
+* There's a bug in Discord with previewing images whose path contains a space.
