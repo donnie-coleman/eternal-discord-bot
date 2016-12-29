@@ -18,6 +18,7 @@ Run the app (locally or whatever)
 # make sure Node v6+ is installed
 git clone # this repo
 cd eternal-discord-bot
+# create a file called token.json and add your token as a string to the file
 npm install # get the node modules
 node index.js # start the app
 ```
