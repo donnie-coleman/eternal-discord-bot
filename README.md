@@ -24,7 +24,7 @@ node index.js # start the app
 ```
 Enjoy.
 
-Type `[[search term]]` to get card information from http://www.numotgaming.com/cards/
+Type `[[search term]]` to get card information from http://www.numotgaming.com/cards/  
 Type `{{search term}}` to get card draft strength information from https://rngeternal.com/draft_pick_order_nov_16/
 
 Notes:
