@@ -10,7 +10,7 @@ const request = require('request'),
       bot = new Discord.Client(),
 
 // the token of your bot - https://discordapp.com/developers/applications/me
-      token = 'insert-your-token-here',
+      token = require('./token.json'),
  
       numotgamingCardsUrl = "http://www.numotgaming.com/cards/",
       searchUrl = `${numotgamingCardsUrl}?filters=true&view=list&search=`,
@@ -91,7 +91,7 @@ const getCardName = function (column) {
 
 // returns the cost of the card
 const getCardCost = function (column) {
-    return column.text() + parseInfluence(column);
+    return (column.text() + parseInfluence(column)) || ' - ';
 };
 
 // returns the attack / health of the card or '-' for non units
@@ -106,7 +106,8 @@ const getCardType = function (column) {
 
 // returns the card's rarity as words
 const getCardRarity = function (column) {
-    return `*${removeClassNamesThatBeginWithIcon(column.find('i').attr('class')).join('').toLowerCase()}*`;
+    let rarity = `${removeClassNamesThatBeginWithIcon(column.find('i').attr('class')).join('').toLowerCase()}`;
+    return rarity ? `*${rarity}*`: ' - ';
 };
 
 // returns the url for the card's image
@@ -128,9 +129,9 @@ const parseInfluence = function (column) {
 
 // takes the class attribute and removes all classes that begin with icon; what remains is returned
 const removeClassNamesThatBeginWithIcon = function (className) {
-    return className.split(' ').filter(function (className){
+    return className ? className.split(' ').filter(function (className){
         return !className.startsWith('icon');
-    });
+    }) : [];
 };
 
 // log our bot in
