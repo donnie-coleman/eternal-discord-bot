@@ -145,7 +145,7 @@ bot.on('message', message => {
                   results = $('#table-cards tbody tr');
 
             if (results.length > 1) {
-                message.channel.sendMessage(getResultsMessage(results));
+                message.channel.sendMessage(getResultsMessage(results, limit));
             }
 
             // send a message for each row
