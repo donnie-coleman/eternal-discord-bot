@@ -15,7 +15,7 @@ const request = require('request'),
     // urls
       numotgamingCardsUrl = 'http://www.numotgaming.com/cards/',
       searchUrl = `${numotgamingCardsUrl}?filters=true&view=list&search=`,
-      cardUrl = `${numotgamingCardsUrl}images/cards/`,
+      cardUrl = 'https://s3.amazonaws.com/eternaldecks/cards/',
       detailUrl = numotgamingCardsUrl,
       draftPickUrl = 'https://rngeternal.com/draft_pick_order_nov_16/',
 
@@ -66,9 +66,14 @@ const getCardRarity = function (column) {
     return rarity ? `*${rarity}*`: ' - ';
 };
 
+// returns a url replacing %20 with + signs, for now
+const encodeCardName = function (url) {
+    return encodeURI(url).replace(/%20/g,'+');
+};
+
 // returns the url for the card's image
 const getCardImageUrl = function (column) {
-    return `${cardUrl}${encodeURI(column.text())}.png`;
+    return `${cardUrl}${encodeCardName(column.text())}.png`;
 };
 
 // returns the url for the card's detail
